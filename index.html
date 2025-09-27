@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astral Compatibility - Privacy-Preserving Zodiac Matching</title>
+    <meta name="description" content="Discover your zodiac compatibility while keeping your personal astrological information private using FHE encryption">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>🌟 Astral Compatibility</h1>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#create-profile" class="nav-link">Create Profile</a>
+                <a href="#matches" class="nav-link">Matches</a>
+                <button id="connectWallet" class="connect-btn">Connect Wallet</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Privacy-Preserving Zodiac Compatibility</h2>
+                <p>Discover your astrological compatibility without revealing your personal zodiac information. Powered by Fully Homomorphic Encryption (FHE) technology.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="totalMatches">0</span>
+                        <span class="stat-label">Total Matches</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="userMatches">0</span>
+                        <span class="stat-label">Your Matches</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn btn-primary" onclick="scrollToSection('create-profile')">Get Started</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('matches')">View Matches</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wallet Connection Status -->
+    <div id="walletStatus" class="wallet-status hidden">
+        <div class="container">
+            <div class="status-content">
+                <div class="status-info">
+                    <span class="status-icon">✅</span>
+                    <span>Connected: <span id="walletAddress"></span></span>
+                </div>
+                <div class="profile-info">
+                    <span id="profileStatus"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Profile Section -->
+    <section id="create-profile" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Create Your Astrological Profile</h2>
+                <p>Your zodiac information will be encrypted and kept private using FHE technology</p>
+            </div>
+
+            <div class="profile-form">
+                <div class="form-group">
+                    <label for="zodiacSelect">Your Zodiac Sign</label>
+                    <select id="zodiacSelect" class="form-control">
+                        <option value="">Select your zodiac sign</option>
+                    </select>
+                    <small class="form-text">Choose your astrological sign based on your birth date</small>
+                </div>
+
+                <div class="zodiac-info" id="zodiacInfo" style="display: none;">
+                    <div class="info-card">
+                        <h4 id="selectedZodiacName"></h4>
+                        <div class="zodiac-details">
+                            <span class="detail">Element: <span id="selectedElement"></span></span>
+                            <span class="detail">Quality: <span id="selectedQuality"></span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button id="createProfileBtn" class="btn btn-primary" disabled>Create Private Profile</button>
+                    <button id="updateProfileBtn" class="btn btn-secondary" style="display: none;">Update Profile</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compatibility Matching Section -->
+    <section id="matches" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Compatibility Matching</h2>
+                <p>Request compatibility analysis with another user</p>
+            </div>
+
+            <div class="match-form">
+                <div class="form-group">
+                    <label for="partnerAddress">Partner's Wallet Address</label>
+                    <input type="text" id="partnerAddress" class="form-control" placeholder="0x..." />
+                    <small class="form-text">Enter the wallet address of the person you want to match with</small>
+                </div>
+
+                <div class="form-actions">
+                    <button id="requestMatchBtn" class="btn btn-primary">Request Compatibility Match</button>
+                </div>
+            </div>
+
+            <!-- Match Results -->
+            <div class="match-results" id="matchResults">
+                <h3>Your Compatibility Matches</h3>
+                <div id="matchList" class="match-list">
+                    <!-- Matches will be populated here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="section bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Privacy-preserving astrological compatibility using advanced cryptography</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Fully Private</h3>
+                    <p>Your zodiac information is encrypted using FHE technology. No one can see your personal astrological data.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Matching</h3>
+                    <p>Compatible calculations happen directly on the blockchain without revealing individual zodiac signs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Accurate Analysis</h3>
+                    <p>Based on traditional astrological principles including elements, qualities, and zodiac relationships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h4>Astral Compatibility</h4>
+                    <p>Privacy-preserving zodiac compatibility powered by FHE encryption</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                    <a href="#" class="footer-link">Support</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Astral Compatibility. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="modal">
+        <div class="modal-content">
+            <div class="loading-spinner"></div>
+            <h3>Processing Transaction</h3>
+            <p>Please confirm the transaction in your wallet and wait for blockchain confirmation...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

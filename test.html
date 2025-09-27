@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button Test</title>
+    <style>
+        button {
+            padding: 10px 20px;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background: #5856eb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Button Test</h1>
+    <button onclick="testClick()">Test Button</button>
+    <button id="testBtn2">Test Button 2</button>
+
+    <div id="output"></div>
+
+    <script>
+        function testClick() {
+            console.log('Button 1 clicked!');
+            document.getElementById('output').innerHTML += '<p>Button 1 clicked!</p>';
+            alert('Button 1 works!');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM ready');
+            const btn2 = document.getElementById('testBtn2');
+            if (btn2) {
+                btn2.addEventListener('click', function() {
+                    console.log('Button 2 clicked!');
+                    document.getElementById('output').innerHTML += '<p>Button 2 clicked!</p>';
+                    alert('Button 2 works!');
+                });
+                console.log('Button 2 listener added');
+            }
+        });
+    </script>
+</body>
+</html>

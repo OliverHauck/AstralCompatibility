@@ -1,0 +1,23 @@
+{
+  "name": "astral-compatibility",
+  "version": "1.0.0",
+  "description": "Privacy-preserving zodiac compatibility matching using FHE encryption",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server . -p 3000 -c-1 --cors",
+    "build": "echo 'No build step required for static site'",
+    "start": "npx http-server . -p 8080 -c-1 --cors"
+  },
+  "keywords": [
+    "zodiac",
+    "compatibility",
+    "privacy",
+    "encryption",
+    "fhe",
+    "blockchain"
+  ],
+  "author": "Astral Compatibility Team",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
